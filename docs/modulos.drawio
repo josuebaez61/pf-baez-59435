@@ -1,0 +1,31 @@
+<mxfile host="65bd71144e">
+    <diagram id="7FzOIhldQcKrplmlNplC" name="Page-1">
+        <mxGraphModel dx="462" dy="1691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="APP.MODULE.TS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="20" width="290" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="APP.COMPONET" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="180" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="DASHBOARD.MODULE.TS" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="-280" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="DASHBOARD&lt;br&gt;COMPONENT" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="-120" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="DESDE DASHBOARD MODULE&lt;br&gt;EXPORTAR EL DASHBOARD.COMPONENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="-90" width="280" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="IMPORTAR EL DASHBOARD.MODULE.TS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="180" width="280" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
