@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Crear usuario</h1>
+
+<div mat-dialog-content>
+  <form>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="example-form-field w-100">
+          <mat-label>Clearable input</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Selecciona pais</mat-label>
+          <mat-select>
+            <mat-option>Argentina</mat-option>
+            <mat-option>Chile</mat-option>
+            <mat-option>Uruguay</mat-option>
+            <mat-option>Peru</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-dialog-close mat-button>Cancelar</button>
+  <button (click)="onSave()" mat-button>Guardar</button>
+</div>
