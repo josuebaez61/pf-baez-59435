@@ -10,8 +10,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { UserFullNamePipe } from './pipes/user-full-name.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
+import { RepeatDirective } from './directives/repeat.directive';
 @NgModule({
-  declarations: [],
+  declarations: [UserFullNamePipe, HighlightDirective, RepeatDirective],
   imports: [CommonModule],
   exports: [
     ReactiveFormsModule,
@@ -25,6 +28,9 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatDialogModule,
     MatTableModule,
+    UserFullNamePipe,
+    HighlightDirective,
+    RepeatDirective,
   ],
 })
 export class SharedModule {}
