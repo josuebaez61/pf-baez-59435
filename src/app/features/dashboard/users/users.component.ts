@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { User } from './models';
@@ -29,19 +29,30 @@ export class UsersComponent {
 
   constructor(private matDialog: MatDialog) {}
 
-  openModal(): void {
+  onDelete(id: string) {
+    if (confirm('Esta seguro?')) {
+      this.dataSource = this.dataSource.filter((user) => user.id !== id);
+    }
+  }
+
+  openModal(editingUser?: User): void {
     this.matDialog
-      .open(UserDialogComponent)
+      .open(UserDialogComponent, {
+        data: {
+          editingUser,
+        },
+      })
       .afterClosed()
       .subscribe({
         next: (result) => {
-          console.log('RECIBIMOS: ', result);
-
           if (!!result) {
-            this.dataSource = [
-              ...this.dataSource,
-              // { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-            ];
+            if (editingUser) {
+              this.dataSource = this.dataSource.map((user) =>
+                user.id === editingUser.id ? { ...user, ...result } : user
+              );
+            } else {
+              this.dataSource = [...this.dataSource, result];
+            }
           }
         },
       });
