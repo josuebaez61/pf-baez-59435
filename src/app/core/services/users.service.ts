@@ -20,6 +20,7 @@ export class UsersService {
 
   getUsers(): Observable<User[]> {
     return new Observable((observer) => {
+      // ACA HAY UN CAMBIO
       setInterval(() => {
         // observer.error('Error al cargar los datos');
         observer.next(DATABASE);
