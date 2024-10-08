@@ -13,10 +13,12 @@ import { MatTableModule } from '@angular/material/table';
 import { UserFullNamePipe } from './pipes/user-full-name.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RepeatDirective } from './directives/repeat.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [UserFullNamePipe, HighlightDirective, RepeatDirective],
   imports: [CommonModule],
   exports: [
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
