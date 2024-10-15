@@ -1,13 +1,12 @@
 <mat-drawer-container class="example-container" autosize>
   <!-- SIDEBAR (MENU LATERAL) -->
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    @if (showFiller) {
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+    <mat-nav-list>
+      <a mat-list-item>INICIO</a>
+      <a href="" mat-list-item>USUARIOS</a>
+      <a href="" mat-list-item>CURSOS</a>
+      <a routerLink="/auth/login" mat-list-item>CERRAR SESION</a>
+    </mat-nav-list>
   </mat-drawer>
 
   <!-- AREA DERECHA (CONTENIDO) -->
