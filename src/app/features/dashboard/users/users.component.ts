@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { User } from './models';
 import { UsersService } from '../../../core/services/users.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -22,7 +23,9 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private matDialog: MatDialog,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +63,12 @@ export class UsersComponent implements OnInit {
         },
       });
     }
+  }
+
+  goToDetail(id: string): void {
+    this.router.navigate([id, 'detail'], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
   openModal(editingUser?: User): void {

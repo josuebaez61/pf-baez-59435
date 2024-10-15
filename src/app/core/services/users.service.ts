@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../features/dashboard/users/models';
-import { delay, Observable, of } from 'rxjs';
+import { delay, map, Observable, of } from 'rxjs';
 
 let DATABASE: User[] = [
   {
@@ -17,6 +17,10 @@ let DATABASE: User[] = [
 })
 export class UsersService {
   constructor() {}
+
+  getById(id: string): Observable<User | undefined> {
+    return this.getUsers().pipe(map((users) => users.find((u) => u.id === id)));
+  }
 
   getUsers(): Observable<User[]> {
     return new Observable((observer) => {

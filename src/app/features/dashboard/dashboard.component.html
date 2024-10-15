@@ -2,10 +2,24 @@
   <!-- SIDEBAR (MENU LATERAL) -->
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-nav-list>
-      <a mat-list-item>INICIO</a>
-      <a href="" mat-list-item>USUARIOS</a>
+      <a
+        routerLinkActive
+        #homeLink="routerLinkActive"
+        routerLink="home"
+        [activated]="homeLink.isActive"
+        mat-list-item
+        >INICIO</a
+      >
+      <a
+        routerLink="users"
+        mat-list-item
+        routerLinkActive
+        #usersLink="routerLinkActive"
+        [activated]="usersLink.isActive"
+        >USUARIOS</a
+      >
       <a href="" mat-list-item>CURSOS</a>
-      <a routerLink="/auth/login" mat-list-item>CERRAR SESION</a>
+      <a (click)="logout()" mat-list-item>CERRAR SESION</a>
     </mat-nav-list>
   </mat-drawer>
 
@@ -24,6 +38,7 @@
       <span>My App</span>
     </mat-toolbar>
 
-    <app-users />
+    <router-outlet />
+    <!-- <app-users /> -->
   </div>
 </mat-drawer-container>
