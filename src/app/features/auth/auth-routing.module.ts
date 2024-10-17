@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'register', // /auth/register
     component: RegisterComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'login',
+  },
 ];
 
 @NgModule({

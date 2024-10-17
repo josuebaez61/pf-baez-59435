@@ -20,7 +20,6 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    UsersModule,
   ],
   exports: [DashboardComponent],
 })
