@@ -18,7 +18,16 @@
         [activated]="usersLink.isActive"
         >USUARIOS</a
       >
-      <a href="" mat-list-item>CURSOS</a>
+
+      <a
+        routerLink="categories"
+        mat-list-item
+        routerLinkActive
+        #categoriesLink="routerLinkActive"
+        [activated]="categoriesLink.isActive"
+        >CATEGORIAS</a
+      >
+
       <a (click)="logout()" mat-list-item>CERRAR SESION</a>
     </mat-nav-list>
   </mat-drawer>
