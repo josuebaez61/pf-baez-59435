@@ -12,6 +12,7 @@ const FAKE_USER: User = {
   id: generateRandomString(4),
   createdAt: new Date(),
   password: '123456',
+  token: 'abcdefghiasdasdasdlsadsalasdasfdsfsdf103232',
 };
 
 @Injectable({ providedIn: 'root' })
@@ -26,14 +27,26 @@ export class AuthService {
     if (data.email != FAKE_USER.email || data.password != FAKE_USER.password) {
       return throwError(() => new Error('Los datos son invalidos'));
     }
-
     this._authUser$.next(FAKE_USER);
+
+    localStorage.setItem('token', FAKE_USER.token);
 
     return of(FAKE_USER);
   }
 
   logout() {
     this._authUser$.next(null);
+    localStorage.removeItem('token');
     this.router.navigate(['auth', 'login']);
+  }
+
+  verifyToken(): Observable<boolean> {
+    const isValid = localStorage.getItem('token') === FAKE_USER.token;
+    if (isValid) {
+      this._authUser$.next(FAKE_USER);
+    } else {
+      this._authUser$.next(null);
+    }
+    return of(isValid);
   }
 }

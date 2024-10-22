@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../features/dashboard/users/models';
 import { delay, map, Observable, of } from 'rxjs';
+import { generateRandomString } from '../../shared/utils';
 
 let DATABASE: User[] = [
   {
@@ -10,6 +11,7 @@ let DATABASE: User[] = [
     createdAt: new Date(),
     password: '123456',
     email: 'gokussj3@gmail.com',
+    token: generateRandomString(20),
   },
 ];
 
