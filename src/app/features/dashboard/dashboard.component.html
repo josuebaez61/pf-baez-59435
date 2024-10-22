@@ -36,15 +36,24 @@
   <div class="example-sidenav-content">
     <!-- TOOLBAR -->
     <mat-toolbar>
-      <button
-        (click)="drawer.toggle()"
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
+      <div
+        class="d-flex justify-content-between align-items-center w-100 h-100"
       >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
+        <div>
+          <button
+            (click)="drawer.toggle()"
+            mat-icon-button
+            class="example-icon"
+            aria-label="Example icon-button with menu icon"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>My App</span>
+        </div>
+        <div *ngIf="authUser$ | async; let authUser">
+          <p>{{ authUser.firstName }} {{ authUser.lastName }}</p>
+        </div>
+      </div>
     </mat-toolbar>
 
     <router-outlet />
