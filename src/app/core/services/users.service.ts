@@ -8,6 +8,7 @@ let DATABASE: User[] = [
     firstName: 'Goku',
     lastName: 'Son',
     createdAt: new Date(),
+    password: '123456',
     email: 'gokussj3@gmail.com',
   },
 ];
