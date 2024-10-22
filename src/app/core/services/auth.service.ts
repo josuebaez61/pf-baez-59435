@@ -17,6 +17,7 @@ const FAKE_USER: User = {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _authUser$ = new BehaviorSubject<null | User>(null);
+
   public authUser$ = this._authUser$.asObservable();
 
   constructor(private router: Router) {}
