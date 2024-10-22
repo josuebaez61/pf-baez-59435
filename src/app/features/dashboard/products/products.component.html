@@ -1,0 +1,24 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input formControlName="name" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Precio</mat-label>
+    <input formControlName="price" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="categoryId">
+      <mat-option
+        [value]="category.id"
+        *ngFor="let category of categories$ | async"
+      >
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button type="submit">Guardar</button>
+</form>
+
+<pre>{{ products$ | async | json }}</pre>

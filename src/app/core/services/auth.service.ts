@@ -28,9 +28,7 @@ export class AuthService {
       return throwError(() => new Error('Los datos son invalidos'));
     }
     this._authUser$.next(FAKE_USER);
-
     localStorage.setItem('token', FAKE_USER.token);
-
     return of(FAKE_USER);
   }
 
