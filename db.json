@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": "4d22",
+      "firstName": "Josue",
+      "lastName": "Baez",
+      "email": "jbaez@mail.com",
+      "password": "123456",
+      "role": "ADMIN",
+      "token": "ndsHSBnsdjkasJs354MSjsnmvcs332SJnxjS",
+      "createdAt": "2024-10-24T00:14:33.140Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "avcE2",
+      "name": "PS5",
+      "price": 9999
+    }
+  ]
+}
