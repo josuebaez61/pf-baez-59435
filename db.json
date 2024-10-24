@@ -9,6 +9,16 @@
       "role": "ADMIN",
       "token": "ndsHSBnsdjkasJs354MSjsnmvcs332SJnxjS",
       "createdAt": "2024-10-24T00:14:33.140Z"
+    },
+    {
+      "id": "Fr24",
+      "firstName": "Naruto",
+      "lastName": "Uzumaki",
+      "email": "naru@mail.com",
+      "createdAt": "2024-10-24T01:28:09.184Z",
+      "role": "USER",
+      "password": "LHxfNUFt",
+      "token": "FKejj6VrYmRw2EtEuecO"
     }
   ],
   "products": [

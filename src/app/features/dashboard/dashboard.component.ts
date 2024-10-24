@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { Observable } from 'rxjs';
 import { User } from './users/models';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
