@@ -38,7 +38,7 @@ export class AuthService {
           if (user) {
             return user;
           } else {
-            throw throwError(() => new Error('Los datos son invalidos'));
+            throw new Error('Los datos son invalidos');
           }
         })
       );
