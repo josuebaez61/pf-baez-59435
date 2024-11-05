@@ -9,6 +9,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { RootReducer } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     StoreModule.forRoot(RootReducer, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
   ],
   providers: [
     provideAnimationsAsync(),

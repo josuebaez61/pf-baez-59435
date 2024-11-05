@@ -18,7 +18,14 @@
         [activated]="usersLink.isActive"
         >USUARIOS</a
       >
-
+      <a
+        routerLink="sales"
+        mat-list-item
+        routerLinkActive
+        #salesLink="routerLinkActive"
+        [activated]="salesLink.isActive"
+        >VENTAS</a
+      >
       <a
         routerLink="categories"
         mat-list-item
