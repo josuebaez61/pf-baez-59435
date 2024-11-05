@@ -6,5 +6,6 @@ export const SaleActions = createActionGroup({
     'Load Sales': emptyProps(),
     'Load Product Options': emptyProps(),
     'Load User Options': emptyProps(),
+    'Create Sale': props<{ productId: string; userId: string }>(),
   },
 });

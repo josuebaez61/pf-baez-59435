@@ -1,7 +1,7 @@
-<form>
+<form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-label>Producto</mat-label>
-    <mat-select>
+    <mat-select formControlName="productId">
       <mat-option
         [value]="product.id"
         *ngFor="let product of productOptions$ | async"
@@ -12,13 +12,13 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Usuario</mat-label>
-    <mat-select>
+    <mat-select formControlName="userId">
       <mat-option [value]="user.id" *ngFor="let user of userOptions$ | async">
         {{ user.firstName }} {{ user.lastName }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-flat-button>Guardar</button>
+  <button type="submit" mat-flat-button>Guardar</button>
 </form>
 
 <pre>{{ sales$ | async | json }}</pre>

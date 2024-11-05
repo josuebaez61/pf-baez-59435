@@ -3,6 +3,7 @@ import { SaleActions } from './sale.actions';
 import { Sale } from '../models';
 import { Product } from '../../products/models';
 import { User } from '../../users/models';
+import { generateRandomString } from '../../../../shared/utils';
 
 export const saleFeatureKey = 'sale';
 
@@ -87,6 +88,19 @@ export const reducer = createReducer(
     return {
       ...state,
       userOptions: [...USER_DB],
+    };
+  }),
+  on(SaleActions.createSale, (state, action) => {
+    return {
+      ...state,
+      sales: [
+        ...state.sales,
+        {
+          id: generateRandomString(4),
+          productId: action.productId,
+          userId: action.userId,
+        },
+      ],
     };
   })
 );

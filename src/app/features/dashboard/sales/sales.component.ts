@@ -10,6 +10,7 @@ import {
 } from './store/sale.selectors';
 import { Product } from '../products/models';
 import { User } from '../users/models';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sales',
@@ -21,7 +22,14 @@ export class SalesComponent implements OnInit {
   userOptions$: Observable<User[]>;
   productOptions$: Observable<Product[]>;
 
-  constructor(private store: Store) {
+  saleForm: FormGroup;
+
+  constructor(private store: Store, private formBuilder: FormBuilder) {
+    this.saleForm = this.formBuilder.group({
+      productId: [null, [Validators.required]],
+      userId: [null, [Validators.required]],
+    });
+
     this.sales$ = this.store.select(selectSales);
     this.productOptions$ = this.store.select(selectProductOptions);
     this.userOptions$ = this.store.select(selectUserOptions);
@@ -31,5 +39,14 @@ export class SalesComponent implements OnInit {
     this.store.dispatch(SaleActions.loadSales());
     this.store.dispatch(SaleActions.loadProductOptions());
     this.store.dispatch(SaleActions.loadUserOptions());
+  }
+
+  onSubmit(): void {
+    if (this.saleForm.invalid) {
+      this.saleForm.markAllAsTouched();
+    } else {
+      this.store.dispatch(SaleActions.createSale(this.saleForm.value));
+      this.saleForm.reset();
+    }
   }
 }
