@@ -1,0 +1,1 @@
+import{b as e,u as t,v as a}from"./chunk-VED7TU6T.js";import{a as o,b as u}from"./chunk-EVXATCS4.js";var n=e("[Counter] Sumar"),c=e("[Counter] Restar");var v="counter",m={value:0},x=a(m,t(n,r=>({value:r.value+1})),t(c,r=>u(o({},r),{value:r.value-1})));export{n as a,c as b,v as c,x as d};
