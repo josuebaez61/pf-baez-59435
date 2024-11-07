@@ -21,4 +21,11 @@
   <button type="submit" mat-flat-button>Guardar</button>
 </form>
 
+@if(isLoadingSales$| async) {
+<mat-spinner></mat-spinner>
+}@else { @if (loadSalesError$ | async; as error) {
+<h2>Oops! Ocurrio un error!</h2>
+<p>{{ error["message"] }}</p>
+} @else {
 <pre>{{ sales$ | async | json }}</pre>
+} }

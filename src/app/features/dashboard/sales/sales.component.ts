@@ -4,6 +4,8 @@ import { SaleActions } from './store/sale.actions';
 import { Observable } from 'rxjs';
 import { Sale } from './models';
 import {
+  selectIsLoadinSales,
+  selectLoadSalesError,
   selectProductOptions,
   selectSales,
   selectUserOptions,
@@ -21,6 +23,8 @@ export class SalesComponent implements OnInit {
   sales$: Observable<Sale[]>;
   userOptions$: Observable<User[]>;
   productOptions$: Observable<Product[]>;
+  loadSalesError$: Observable<Error | null>;
+  isLoadingSales$: Observable<boolean>;
 
   saleForm: FormGroup;
 
@@ -33,6 +37,8 @@ export class SalesComponent implements OnInit {
     this.sales$ = this.store.select(selectSales);
     this.productOptions$ = this.store.select(selectProductOptions);
     this.userOptions$ = this.store.select(selectUserOptions);
+    this.isLoadingSales$ = this.store.select(selectIsLoadinSales);
+    this.loadSalesError$ = this.store.select(selectLoadSalesError);
   }
 
   ngOnInit(): void {

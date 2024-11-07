@@ -7,19 +7,6 @@ import { generateRandomString } from '../../../../shared/utils';
 
 export const saleFeatureKey = 'sale';
 
-const SALES_DB: Sale[] = [
-  {
-    id: 'sdUd24',
-    productId: 'asds',
-    userId: 'adasds',
-  },
-  {
-    id: 'fdfds',
-    productId: 'vfgfdg',
-    userId: 'sdasdasd',
-  },
-];
-
 const PRODUCTS_DB: Product[] = [
   {
     id: 'avcE2',
@@ -59,12 +46,16 @@ const USER_DB: User[] = [
 ];
 
 export interface State {
+  isLoadingSales: boolean;
+  loadSalesError: Error | null;
   sales: Sale[];
   productOptions: Product[];
   userOptions: User[];
 }
 
 export const initialState: State = {
+  isLoadingSales: false,
+  loadSalesError: null,
   sales: [],
   productOptions: [],
   userOptions: [],
@@ -75,9 +66,26 @@ export const reducer = createReducer(
   on(SaleActions.loadSales, (state) => {
     return {
       ...state,
-      sales: [...SALES_DB],
+      isLoadingSales: true,
     };
   }),
+  on(SaleActions.loadSalesSuccess, (state, action) => {
+    return {
+      ...state,
+      sales: action.data,
+      loadSalesError: null,
+      isLoadingSales: false,
+    };
+  }),
+  on(SaleActions.loadSalesFailure, (state, action) => {
+    return {
+      ...state,
+      ...initialState,
+      loadSalesError: action.error,
+      isLoadingSales: false,
+    };
+  }),
+
   on(SaleActions.loadProductOptions, (state) => {
     return {
       ...state,

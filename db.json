@@ -27,5 +27,12 @@
       "name": "PS5",
       "price": 9999
     }
+  ],
+  "sales": [
+    {
+      "id": "nvcE3",
+      "userId": "Fr24",
+      "productId": "avcE2"
+    }
   ]
 }
