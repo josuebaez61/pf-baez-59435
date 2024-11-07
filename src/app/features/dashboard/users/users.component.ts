@@ -4,6 +4,8 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { User } from './models';
 import { UsersService } from '../../../core/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -21,12 +23,17 @@ export class UsersComponent implements OnInit {
     apellido: 'Baez',
   };
 
+  authUser$: Observable<User | null>;
+
   constructor(
     private matDialog: MatDialog,
     private usersService: UsersService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
+  ) {
+    this.authUser$ = this.authService.authUser$;
+  }
 
   ngOnInit(): void {
     this.loadUsers();

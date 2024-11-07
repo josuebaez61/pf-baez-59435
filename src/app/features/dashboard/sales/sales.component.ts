@@ -43,8 +43,9 @@ export class SalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(SaleActions.loadSales());
-    this.store.dispatch(SaleActions.loadProductOptions());
-    this.store.dispatch(SaleActions.loadUserOptions());
+    this.store.dispatch(SaleActions.loadProductsAndUserOptions());
+    // this.store.dispatch(SaleActions.loadProductOptions());
+    // this.store.dispatch(SaleActions.loadUserOptions());
   }
 
   onSubmit(): void {

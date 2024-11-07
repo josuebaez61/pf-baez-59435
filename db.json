@@ -26,6 +26,16 @@
       "id": "avcE2",
       "name": "PS5",
       "price": 9999
+    },
+    {
+      "id": "nvhE2",
+      "name": "PC GAMER",
+      "price": 5454
+    },
+    {
+      "id": "akcE5",
+      "name": "MOUSE GAMER",
+      "price": 343
     }
   ],
   "sales": [
@@ -33,6 +43,26 @@
       "id": "nvcE3",
       "userId": "Fr24",
       "productId": "avcE2"
+    },
+    {
+      "id": "5981",
+      "productId": "avcE2",
+      "userId": "Fr24"
+    },
+    {
+      "id": "1d4c",
+      "productId": "avcdE32",
+      "userId": "4d22"
+    },
+    {
+      "id": "bfd2",
+      "productId": "avcE2",
+      "userId": "Fr24"
+    },
+    {
+      "id": "014d",
+      "productId": "nvhE2",
+      "userId": "4d22"
     }
   ]
 }

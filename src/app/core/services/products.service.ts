@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Product } from '../../features/dashboard/products/models';
 import { generateRandomString } from '../../shared/utils';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 export let MY_DATABASE: Product[] = [
   {
@@ -20,8 +22,11 @@ export let MY_DATABASE: Product[] = [
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
+  constructor(private httpClient: HttpClient) {}
+
   getProducts(): Observable<Product[]> {
-    return of([...MY_DATABASE]);
+    return this.httpClient.get<Product[]>(`${environment.apiBaseURL}/products`);
+    // return of([...MY_DATABASE]);
   }
 
   deleteById(id: string): Observable<Product[]> {

@@ -6,7 +6,11 @@
 
   } @else {
 
-  <button mat-button (click)="openModal()">
+  <button
+    [disabled]="(authUser$ | async)?.role != 'ADMIN'"
+    mat-button
+    (click)="openModal()"
+  >
     <mat-icon> add </mat-icon>
     Crear usuario
   </button>
@@ -47,10 +51,18 @@
         <button (click)="goToDetail(user.id)" mat-icon-button>
           <mat-icon>visibility</mat-icon>
         </button>
-        <button (click)="openModal(user)" mat-icon-button>
+        <button
+          [disabled]="(authUser$ | async)?.role != 'ADMIN'"
+          (click)="openModal(user)"
+          mat-icon-button
+        >
           <mat-icon>edit</mat-icon>
         </button>
-        <button (click)="onDelete(user.id)" mat-icon-button>
+        <button
+          [disabled]="(authUser$ | async)?.role != 'ADMIN'"
+          (click)="onDelete(user.id)"
+          mat-icon-button
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </td>

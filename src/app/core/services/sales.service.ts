@@ -13,4 +13,11 @@ export class SalesService {
       `${environment.apiBaseURL}/sales?_embed=user&_embed=product`
     );
   }
+
+  createSale(payload: Omit<Sale, 'id' | 'user' | 'product'>): Observable<Sale> {
+    return this.httpClient.post<Sale>(
+      `${environment.apiBaseURL}/sales`,
+      payload
+    );
+  }
 }
